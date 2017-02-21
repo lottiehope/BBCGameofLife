@@ -8,6 +8,11 @@ public interface GameState {
      * @param col
      * @return
      */
+
+    int noRows = 3;
+    int noCols = 3;
+    String[] board = new String[3];
+
     boolean isCellAliveAt(int row, int col);
 
     /**

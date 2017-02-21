@@ -1,32 +1,46 @@
 package bbc.codingtests.gameoflife.gamestate;
 
+import java.util.Arrays;
+
 public class GameStateImpl implements GameState {
 
-    //TODO implement this method such that live cells are represented as a '*' and dead cells are represented by a '.'
-    //TODO use newline ('\n') to separate rows
+    private int noRows = 3;
+    private int noCols = 3;
+    private String[] board = new String[noRows];
+
     @Override
     public String toString() {
-        throw new UnsupportedOperationException("Please implement the 'toString' method");
+        String result = "";
+        for(int i = 0; i < noRows; i++){
+            if(i != noRows-1) {
+                result = result + board[i] + "\n";
+            }
+            else{
+                result = result + board[i];
+            }
+        }
+        return result;
+
     }
 
-    //TODO implement this constructor to parse an input string and return a new GameStateImpl object representing what you got in the string
-    //TODO as above, live cells are '*' and dead cells are '.' Rows are separated by newline ('\n')
     public GameStateImpl(String input) {
-        throw new UnsupportedOperationException("Please implement the 'GameStateImpl' constructor");
+        board = input.split("\\n");
     }
 
-    //TODO implement this method according to explanation in GameState.java
     public boolean isCellAliveAt(int row, int col) {
-        throw new UnsupportedOperationException("Please implement the 'isCellAliveAt' method");
+        if(board[row].charAt(col) == '*'){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
-    @Override
     public int getRows() {
-        throw new UnsupportedOperationException("Please implement the 'getRows' method");
+        return noRows;
     }
 
-    @Override
     public int getCols() {
-        throw new UnsupportedOperationException("Please implement the 'getCols' method");
+        return noCols;
     }
 }
